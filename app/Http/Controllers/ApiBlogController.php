@@ -19,7 +19,14 @@ class ApiBlogController extends Controller
     
         return new PostResource(true,"success",$blogs);
     }
-
+    public function search($judul)
+{
+    $blogs = Blog::where('judul', 'like', '%' . $judul . '%')->get();
+    if ($blogs->isEmpty()) {
+        return new PostResource(false, 'No data found', []);
+    }
+    return new PostResource(true, 'success', $blogs);
+}
     /**
      * Show the form for creating a new resource.
      */

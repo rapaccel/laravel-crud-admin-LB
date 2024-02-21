@@ -21,7 +21,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 });
 // Route::resource('prices', ApiPriceController::class);
 Route::get('/blogs',[ApiBlogController::class,'index']);
+Route::get('/blog/search/{judul}',[ApiBlogController::class,'search']);
 Route::post('/tambah-blog',[ApiBlogController::class,'store']);
 Route::get('/prices',[ApiPriceController::class,'index']);
-
 Route::get('/blogs/{id}', [ApiBlogController::class, 'show']);

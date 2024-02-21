@@ -59,9 +59,12 @@
                                             {{ $blog->judul }}
                                         </td>
                                         <td>
-                                            <img src="{{ asset('storage/' . $blog->thumbnail) }}" style="max-width: 150px; 
-                                            max-height: 150px;" alt="Thumbnail">
+                                            @php
+                                                $cleanedUrl = str_replace('http://127.0.0.1:8000/storage/', '', $blog->thumbnail);
+                                            @endphp
+                                            <img src="{{ asset('storage/' . $cleanedUrl) }}" style="max-width: 150px; max-height: 150px;" alt="Thumbnail">
                                         </td>
+                                                                            
                                         <td>
                                             {!! $blog->isi !!}
                                         </td>
